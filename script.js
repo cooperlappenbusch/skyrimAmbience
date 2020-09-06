@@ -25,7 +25,7 @@ mainSongsList = {
 
 }
 currentMainMusicKey = "";
-soundSourcesDictionary = {}
+soundSourcesDictionary = {};
 
 function setNewMainMusic(mainMusicName, textName, currentIndex) {
     document.getElementById("musicDropdown").textContent = textName;
@@ -49,7 +49,7 @@ function setNewMainMusic(mainMusicName, textName, currentIndex) {
     } else {
         currentMainMusicKey = mainMusicName;
     }
-    var newAudio = new Audio(mainSongsList[mainMusicName][currentIndex]);
+    var newAudio = new Audio(mainSongsList[currentMainMusicKey][currentIndex]);
     newAudio.addEventListener('ended', function () {
         /*console.log(soundSourcesDictionary);
         delete soundSourcesDictionary[mainMusicName];
@@ -64,17 +64,29 @@ function setNewMainMusic(mainMusicName, textName, currentIndex) {
         newAudio.id = mainMusicName;
         document.getElementById("audioDiv").appendChild(newAudio);
         soundSourcesDictionary[mainMusicName] = newAudio;*/
-        if (currentIndex + 1 == mainSongsList[mainMusicName].length) {
-            setNewMainMusic(mainMusicName, textName, 0);
+        if (currentIndex + 1 == mainSongsList[currentMainMusicKey].length) {
+            setNewMainMusic(currentMainMusicKey, textName, 0);
         } else {
-            setNewMainMusic(mainMusicName, textName, currentIndex + 1);
+            setNewMainMusic(currentMainMusicKey, textName, currentIndex + 1);
         }
     }, false);
     newAudio.volume = document.getElementById("mainSkyrimSong").value / 100;
-    newAudio.play();
-    newAudio.id = mainMusicName;
+    var playPromise = newAudio.play();
+    if (playPromise) {
+        playPromise.then(() => {
+            // Audio Loading Successful
+            // Audio playback takes time
+            setTimeout(() => {
+                // Follow up operation
+                console.log("done.");
+            }, newAudio.duration * 1000); // audio.duration is the length of the audio in seconds.
+        }).catch((e) => {
+            // Audio loading failure
+        });
+    }
+    newAudio.id = currentMainMusicKey;
     document.getElementById("audioDiv").appendChild(newAudio);
-    soundSourcesDictionary[mainMusicName] = newAudio;
+    soundSourcesDictionary[currentMainMusicKey] = newAudio;
 
 }
 // source: https://stackoverflow.com/a/11331200/4298200
