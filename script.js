@@ -86,6 +86,7 @@ function setNewMainMusic(mainMusicName, textName, currentIndex) {
     }
     newAudio.id = currentMainMusicKey;
     newAudio.preload = "auto";
+    newAudio.setAttribute("importance", "high");
     document.getElementById("audioDiv").appendChild(newAudio);
     soundSourcesDictionary[currentMainMusicKey] = newAudio;
 
@@ -156,6 +157,7 @@ function createNewAudioSource(filePath, name) {
 }
 
 function changeMusicVolume(id) {
+
     console.log(soundSourcesDictionary);
     var sliderName = id.replace("Slider", "");
     console.log(sliderName);
@@ -208,35 +210,3 @@ function mutePage() {
 
 }
 
-
-
-jQuery(function () {
-
-    // Youtube player
-    window.videoPlayer;
-
-    window.onYouTubeIframeAPIReady = function () {
-        var videoPlayerId = $('#videoPlayer').attr('data-videoid');
-        window.videoPlayer = new YT.Player('videoPlayer', {
-            height: '1080',
-            width: '1920',
-            videoId: videoPlayerId,
-            playerVars: {
-                'controls': 0,
-                'autoplay': 1,
-                'mute': 1,
-                'loop': 1,
-                'showinfo': 0,
-                'modestbranding': 1
-            },
-            events: {
-                'onReady': onVideoPlayerReady,
-                'onStateChange': onVideoPlayerReady
-            }
-        });
-    }
-
-    function onVideoPlayerReady(event) {
-        videoPlayer.playVideo();
-    }
-});
