@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Skyrim Ambience</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <link rel="icon" href="dovakhinnnn.png" type="image/ico" />
+</head>
+
+<body>
+    <div class="outer">
+        <h1><span class="skyrimAmbienceText">SkyrimAmbience</span>
+            <a href="https://www.patreon.com/skyrimambience?fan_landing=true" target="_blank">
+                <p id="donateParagraph">Support us on Patreon! (Hosting isn't free)</p>
+            </a>
+        </h1>
+        <div class="center">
+            <p></p>
+            <div class="text-center">
+                <button type="button" class="btn blue-gradient" onclick="mutePage()" id="muteButton">Mute</button>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h5 style="padding-top: 15px;">Music Volume</h5>
+                    </div>
+                    <div class="col-md-3" style="text-align: center;">
+                        <form class="range-field musicMixVolume">
+                            <input type="range" min="0" max="100" style="margin-top: 5px" id="mainSkyrimSong"
+                                oninput="changeMusicVolume('SKYRIMSONG')" onchange="changeMusicVolume('SKYRIMSONG')" />
+                        </form>
+                    </div>
+                    <div class="col-md-4" style="text-align: center;">
+                        <button class="btn blue-gradient dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" id="musicDropdown">Skyrim Calm Night</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item"
+                                onclick="setNewMainMusic('skyrimCalmNight','Skyrim Calm Night', 0)">Skyrim
+                                Calm
+                                Night</a>
+                            <a class="dropdown-item" onclick="setNewMainMusic('skyrimTowns','Skyrim Towns', 0)">Skyrim
+                                Towns</a>
+                            <a class="dropdown-item"
+                                onclick="setNewMainMusic('skyrimDungeons','Skyrim Dungeons', 0)">Skyrim
+                                Dungeons</a>
+                            <a class="dropdown-item"
+                                onclick="setNewMainMusic('skyrimInnWithFireplace','Skyrim Inn with Fireplace', 0)">Skyrim
+                                Inn with Fireplace</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Nature Sounds</h3>
+                        <div class="row itemRow">
+                            <div class="col-md-4" style="text-align: center;">Skyrim Rain / Thunder</div>
+                            <div class="col-md-4">
+                                <form class="range-field formRange">
+                                    <input id="skyrimRainThunderSlider" type="range" min="0" max="100"
+                                        style="margin-top: 5px" oninput="changeMusicVolume(this.id)"
+                                        onchange="changeMusicVolume(this.id)" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="splitter"></div>
+                        <div class="row itemRow">
+                            <div class="col-md-4" style="text-align: center;">Wind / Snow</div>
+                            <div class="col-md-4">
+                                <form class="range-field formRange">
+                                    <input type="range" id="windSlider" min="0" max="100" style="margin-top: 5px"
+                                        oninput="changeMusicVolume(this.id)" onchange="changeMusicVolume(this.id)" />
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="splitter"></div>
+                        <div class="row itemRow">
+                            <div class="col-md-4" style="text-align: center;">Skyrim Forest Rainy Night</div>
+                            <div class="col-md-4">
+                                <form class="range-field formRange">
+                                    <input type="range" id="skyrimForestRainyNightSlider" min="0" max="100"
+                                        style="margin-top: 5px" oninput="changeMusicVolume(this.id)"
+                                        onchange="changeMusicVolume(this.id)" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="splitter"></div>
+                        <div class="row itemRow">
+                            <div class="col-md-4" style="text-align: center;">Skyrim Forest Night</div>
+                            <div class="col-md-4">
+                                <form class="range-field formRange">
+                                    <input type="range" id="skyrimForestNightSlider" min="0" max="100"
+                                        style="margin-top: 5px" oninput="changeMusicVolume(this.id)"
+                                        onchange="changeMusicVolume(this.id)" />
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Town Sounds</h3>
+                        <div class="row itemRow">
+                            <div class="col-md-4" style="text-align: center;">Fireplace</div>
+                            <div class="col-md-4">
+                                <form class="range-field formRange">
+                                    <input type="range" id="fireplaceSlider" min="0" max="100" style="margin-top: 5px"
+                                        oninput="changeMusicVolume(this.id)" onchange="changeMusicVolume(this.id)" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="splitter"></div>
+                        <div class="row itemRow">
+                            <div class="col-md-4" style="text-align: center;">Riverwood Ambience!</div>
+                            <div class="col-md-4">
+                                <form class="range-field formRange">
+                                    <input type="range" id="riverwoodAmbienceSlider" min="0" max="100"
+                                        style="margin-top: 5px" oninput="changeMusicVolume(this.id)"
+                                        onchange="changeMusicVolume(this.id)" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="splitter"></div>
+                        <div class="row itemRow">
+                            <div class="col-md-4" style="text-align: center;">Town Ambience</div>
+                            <div class="col-md-4">
+                                <form class="range-field formRange">
+                                    <input type="range" id="townAmbienceSlider" min="0" max="100"
+                                        style="margin-top: 5px" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade blackText" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+                <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title blackText" id="exampleModalLongTitle">Welcome to Skyrim Ambience
+                            </h5>
+
+                        </div>
+                        <div class="modal-body">
+                            <p class="blackText" style="text-align: center;">Mix your favorite skyrim sounds to
+                                create
+                                the perfect track for your
+                                studying, relaxing,
+                                or sleeping!</p>
+                        </div>
+                        <div class="modal-footer" style="text-align: center;">
+                            <button type="button" class="btn btn-primary" onclick="startMusic()"
+                                data-dismiss="modal">Start the
+                                music!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<ul id="optionsList">
+                <li>
+                    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <label for="Student">Rain Sound </label>
+                        <input id="ex6" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1"
+                            data-slider-value="3" />
+                        <span id="ex6CurrentSliderValLabel">Current Slider Value: <span
+                                id="ex6SliderVal">3</span></span>
+                    </div>
+                </li>
+                <li>
+                    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <label for="Student">Rain Sound </label>
+                        <form class="range-field my-4 w-50">
+                            <input type="range" min="0" max="100" />
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <label for="Student">Blacksmithing</label>
+                        <form class="range-field">
+                            <input type="range" min="0" max="100" />
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <label for="Student">Wind</label>
+                        <form class="range-field">
+                            <input type="range" min="0" max="100" />
+                        </form>
+                    </div>
+                </li>
+            </ul>-->
+        </div>
+    </div>
+
+    <div id="audioDiv">
+
+    </div>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <!-- My Own Script -->
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

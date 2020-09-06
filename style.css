@@ -1,0 +1,154 @@
+
+* {
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: 'MyWebFont';
+}
+@font-face {
+    font-family: 'MyWebFont';
+    src:  url('typo3Normal.ttf'); /* Safari, Android, iOS */    
+}
+
+body {
+    background-image: url("skyrimBackgroundForest.jpg");
+    
+}
+.outer {
+    width: 100%;
+    height: 100%;
+}
+.skyrimAmbienceText {
+    background: rgb(0, 0, 0); /* Fallback for older browsers without RGBA-support */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+}
+h1 {
+    font-family: "MyWebFont";
+    opacity: 1 !important;
+    text-align: center;
+    margin-top: 60px;
+    color: white;
+    border-radius: 15px;
+}
+h3 {
+    font-family: "MyWebFont";
+    opacity: 1 !important;
+    padding: 20px;
+    color: white;
+    font-size: 27px;
+}
+
+h5 {
+    font-family: "MyWebFont";
+    opacity: 1 !important;
+    padding: 10px;
+    color: white;
+    font-size: 27px;
+    text-align: center;
+}
+#optionsList {
+    list-style-type: none;
+    text-align: center;
+}
+
+#optionsList li {
+    display: inline;
+}
+
+label {
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+
+.center {
+    width: 800px;
+    height: 600px;
+    background-color: black;
+    position: absolute; /*Can also be `fixed`*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    background: rgb(0, 0, 0); /* Fallback for older browsers without RGBA-support */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.formRange {
+    width: 50%;
+    margin-left: 10px;
+}
+
+
+.splitter {
+    margin: 30px;
+}
+
+.musicMixVolume {
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  #donateParagraph {
+    font-size: 11px;
+    text-decoration: underline;
+  }
+
+  .blackText {
+      color: black !important;
+  }
+
+  .page {
+    position: relative;
+    overflow: hidden;
+   }
+   
+   .page .video-bg {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;/* Aspect ratio */
+    position: absolute;
+   }
+   
+   .page .video-bg iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   }
+   
+   .page .content {
+    position: relative;
+    z-index: 1;
+   }
