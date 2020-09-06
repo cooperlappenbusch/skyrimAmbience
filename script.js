@@ -85,7 +85,7 @@ function setNewMainMusic(mainMusicName, textName, currentIndex) {
         });
     }
     newAudio.id = currentMainMusicKey;
-    newAudio.preload = "none";
+    newAudio.preload = "auto";
     document.getElementById("audioDiv").appendChild(newAudio);
     soundSourcesDictionary[currentMainMusicKey] = newAudio;
 
