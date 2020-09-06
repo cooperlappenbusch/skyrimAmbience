@@ -85,6 +85,7 @@ function setNewMainMusic(mainMusicName, textName, currentIndex) {
         });
     }
     newAudio.id = currentMainMusicKey;
+    newAudio.preload = "none";
     document.getElementById("audioDiv").appendChild(newAudio);
     soundSourcesDictionary[currentMainMusicKey] = newAudio;
 
@@ -148,6 +149,7 @@ function createNewAudioSource(filePath, name) {
     newAudio.play();
     console.log("After audio play");
     newAudio.id = name;
+    newAudio.preload = "none";
     document.getElementById("audioDiv").appendChild(newAudio);
     soundSourcesDictionary[name] = newAudio;
 
